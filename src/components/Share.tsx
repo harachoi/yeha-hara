@@ -1,10 +1,9 @@
-import { QRCodeSVG } from 'qrcode.react'
 import { weddingData } from '../data/wedding'
 import { kakaoShare } from '../utils/kakaoShare'
 import { getShareUrl } from '../utils/shareUrl'
 
 export function Share() {
-  const { groom, bride, date, shareUrl } = weddingData
+  const { groom, bride, date } = weddingData
   const shareText = `${groom.name} ♥ ${bride.name} 결혼식에 초대합니다\n${date.year}.${date.month}.${date.day} ${date.time}`
   const shareTitle = `${groom.name} ♥ ${bride.name} 결혼식`
 
@@ -47,21 +46,6 @@ export function Share() {
   return (
     <section className="section share-section scroll-reveal">
       <p className="section-label">Share</p>
-
-      {shareUrl && (
-        <div className="share-qr">
-          <QRCodeSVG
-            value={shareUrl}
-            size={148}
-            level="M"
-            marginSize={2}
-            bgColor="#ffffff"
-            fgColor="#3d3530"
-          />
-          <p className="share-qr-caption">QR 코드를 스캔해 청첩장을 확인하세요</p>
-        </div>
-      )}
-
       <div className="share-buttons">
         <button type="button" className="btn-share" onClick={handleKakaoShare}>
           카카오톡 공유

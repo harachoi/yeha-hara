@@ -532,6 +532,11 @@ body {
   stroke-linejoin: round;
 }
 
+.transport-icon svg.transport-svg-filled {
+  fill: currentColor;
+  stroke: none;
+}
+
 .transport-list {
   list-style: none;
   display: flex;
@@ -880,26 +885,6 @@ body {
 .share-section {
   background: var(--color-bg-warm);
   padding: 3rem 1.8rem;
-}
-
-.share-qr {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto 2rem;
-  padding: 1.5rem 1.25rem 1.25rem;
-  max-width: 220px;
-  background: var(--color-white);
-  border-radius: 14px;
-  box-shadow: 0 4px 20px rgba(61, 53, 48, 0.06);
-}
-
-.share-qr-caption {
-  margin-top: 1rem;
-  font-size: 0.78rem;
-  line-height: 1.6;
-  color: var(--color-text-light);
-  text-align: center;
 }
 
 .share-buttons {
