@@ -75,6 +75,7 @@ export const weddingData = {
     { src: 'images/gallery/06.jpg', alt: '웨딩 사진 6' },
     { src: 'images/gallery/07.jpg', alt: '웨딩 사진 7' },
     { src: 'images/gallery/08.jpg', alt: '웨딩 사진 8' },
+    { src: 'images/gallery/09.jpg', alt: '웨딩 사진 9' },
   ],
   contact: {
     groomSide: '신랑측 혼주 전창남',
