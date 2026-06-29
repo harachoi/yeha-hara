@@ -36,7 +36,7 @@ function AccountRow({ entry }: { entry: AccountEntry }) {
   const [copied, setCopied] = useState(false)
 
   const copyAccount = async () => {
-    const text = `${entry.bank} ${entry.number} (${entry.holder})`
+    const text = `${entry.bank} ${entry.number}`
     try {
       await navigator.clipboard.writeText(text)
       setCopied(true)

@@ -633,7 +633,7 @@ body {
 
 .account-row {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 5rem minmax(0, 1fr) 2.2rem;
   align-items: center;
   gap: 0.5rem;
 }
@@ -643,6 +643,7 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 0.25rem;
+  width: 5rem;
   font-size: 0.8rem;
   color: var(--color-text);
   white-space: nowrap;
@@ -655,6 +656,10 @@ body {
 }
 
 .account-row-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.4rem;
   padding: 0.65rem 0.8rem;
   border: 1px solid #e0dcd6;
   border-radius: 999px;

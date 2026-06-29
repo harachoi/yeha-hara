@@ -31,9 +31,15 @@ export function BusIcon({ className }: IconProps) {
 
 export function ParkingIcon({ className }: IconProps) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="5" y="3.5" width="14" height="17" rx="2.5" />
-      <path d="M10 16v-8h3a2.5 2.5 0 0 1 0 5h-3" />
+    <svg
+      className={`transport-svg-filled ${className ?? ''}`}
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path
+        fillRule="evenodd"
+        d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm2.2 4.2V17h2.9c2.15 0 3.9-1.75 3.9-3.9S14.25 9.2 12.1 9.2H9.2z"
+      />
     </svg>
   )
 }
