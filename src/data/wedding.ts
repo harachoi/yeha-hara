@@ -4,12 +4,12 @@ export const weddingData = {
     name: '예하',
     relation: '장남',
     father: '전창남',
-    mother: '성이름',
+    mother: '조미애',
     phone: '010-1234-5678',
     accounts: [
       { role: '신랑', bank: '국민', number: '111-1234-5678-99', holder: '예하' },
       { role: '아버지', bank: '농협', number: '111-1234-5678-99', holder: '전창남' },
-      { role: '어머니', bank: '우리', number: '111-1234-5678-99', holder: '성이름' },
+      { role: '어머니', bank: '우리', number: '111-1234-5678-99', holder: '조미애' },
     ],
   },
   bride: {
