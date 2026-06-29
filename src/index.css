@@ -225,6 +225,58 @@ body {
   font-size: 1.6rem;
 }
 
+.calendar-title {
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+
+.calendar {
+  max-width: 300px;
+  margin: 0 auto 2rem;
+}
+
+.calendar-weekdays,
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendar-weekdays span {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  padding: 0.5rem 0;
+}
+
+.calendar-days span {
+  font-size: 0.85rem;
+  padding: 0.5rem 0;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-days .sun,
+.calendar-weekdays .sun {
+  color: #c47a7a;
+}
+
+.calendar-days .sat,
+.calendar-weekdays .sat {
+  color: #7a8ec4;
+}
+
+.wedding-day {
+  background: var(--color-accent);
+  color: var(--color-white) !important;
+  font-weight: 500;
+}
+
 .countdown {
   margin: 0 auto 2rem;
   padding: 1.5rem 1rem;
