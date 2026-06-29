@@ -15,9 +15,25 @@ function PeopleIcon() {
   )
 }
 
+function CopyIcon() {
+  return (
+    <svg className="account-copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <rect x="8" y="8" width="12" height="12" rx="2" />
+      <path d="M6 16H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+    </svg>
+  )
+}
+
+function CheckIcon() {
+  return (
+    <svg className="account-copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <path d="M5 12l5 5L19 7" />
+    </svg>
+  )
+}
+
 function AccountRow({ entry }: { entry: AccountEntry }) {
   const [copied, setCopied] = useState(false)
-  const isParent = entry.role === '아버지' || entry.role === '어머니'
 
   const copyAccount = async () => {
     const text = `${entry.bank} ${entry.number} (${entry.holder})`
@@ -34,14 +50,18 @@ function AccountRow({ entry }: { entry: AccountEntry }) {
     <div className="account-row">
       <span className="account-row-label">
         {entry.role}
-        {isParent && <span className="account-row-name">{entry.holder}</span>}
+        <span className="account-row-name">{entry.holder}</span>
       </span>
       <div className="account-row-info">
         {entry.bank} {entry.number}
-        {!isParent && ` (${entry.holder})`}
       </div>
-      <button type="button" className="account-row-copy" onClick={copyAccount}>
-        {copied ? '완료' : '복사하기'}
+      <button
+        type="button"
+        className={`account-row-copy ${copied ? 'is-copied' : ''}`}
+        onClick={copyAccount}
+        aria-label={copied ? '복사 완료' : '계좌번호 복사'}
+      >
+        {copied ? <CheckIcon /> : <CopyIcon />}
       </button>
     </div>
   )

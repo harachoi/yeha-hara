@@ -1,5 +1,5 @@
 import { weddingData } from '../data/wedding'
-import { formatWeddingTime, getPoeticDay, getPoeticMonth } from '../utils/dateText'
+import { formatWeddingTime } from '../utils/dateText'
 import { Countdown } from './Countdown'
 
 const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토']
@@ -15,10 +15,9 @@ export function Calendar() {
 
   return (
     <section className="section calendar-section scroll-reveal">
-      <div className="poetic-date">
-        <p className="poetic-month">{getPoeticMonth(date.month)}</p>
-        <p className="poetic-day">{getPoeticDay(date.day)}</p>
-      </div>
+      <p className="calendar-date-header">
+        {date.year}년 {date.month}월
+      </p>
 
       <div className="calendar">
         <div className="calendar-weekdays">
