@@ -1,7 +1,7 @@
 import { weddingData } from '../data/wedding'
 
 export function Invitation() {
-  const { groom, bride, message, parentsMessage } = weddingData
+  const { groom, bride, parentsMessage } = weddingData
 
   return (
     <section className="section invitation">
@@ -21,8 +21,7 @@ export function Invitation() {
         </div>
       </div>
 
-      <p className="message">{message}</p>
-      <p className="message parents-msg">{parentsMessage}</p>
+      <p className="message">{parentsMessage}</p>
     </section>
   )
 }

@@ -1,5 +1,5 @@
 export const weddingData = {
-  heroImage: '/images/hero.jpg',
+  heroImage: 'images/hero.jpg',
   groom: {
     name: '예하',
     father: '김영호',
@@ -60,25 +60,20 @@ export const weddingData = {
       ],
     },
   },
-  message: `저희 두 사람이 사랑으로 하나가 되어
+  
+  parentsMessage: `저희 두 사람이 사랑으로 하나가 되어
 새로운 인생을 시작하려 합니다.
 귀한 걸음 하시어 축복해 주시면
 더없는 기쁨으로 간직하겠습니다.`,
-  parentsMessage: `사랑하는 두 사람이
-서로를 아끼고 존중하며
-행복한 가정을 이루기를 바랍니다.
-바쁘시겠지만 참석하시어
-두 사람의 앞날을 축복해 주시면
-감사하겠습니다.`,
   gallery: [
-    { src: '/images/gallery/01.jpg', alt: '웨딩 사진 1' },
-    { src: '/images/gallery/02.jpg', alt: '웨딩 사진 2' },
-    { src: '/images/gallery/03.jpg', alt: '웨딩 사진 3' },
-    { src: '/images/gallery/04.jpg', alt: '웨딩 사진 4' },
-    { src: '/images/gallery/05.jpg', alt: '웨딩 사진 5' },
-    { src: '/images/gallery/06.jpg', alt: '웨딩 사진 6' },
-    { src: '/images/gallery/07.jpg', alt: '웨딩 사진 7' },
-    { src: '/images/gallery/08.jpg', alt: '웨딩 사진 8' },
+    { src: 'images/gallery/01.jpg', alt: '웨딩 사진 1' },
+    { src: 'images/gallery/02.jpg', alt: '웨딩 사진 2' },
+    { src: 'images/gallery/03.jpg', alt: '웨딩 사진 3' },
+    { src: 'images/gallery/04.jpg', alt: '웨딩 사진 4' },
+    { src: 'images/gallery/05.jpg', alt: '웨딩 사진 5' },
+    { src: 'images/gallery/06.jpg', alt: '웨딩 사진 6' },
+    { src: 'images/gallery/07.jpg', alt: '웨딩 사진 7' },
+    { src: 'images/gallery/08.jpg', alt: '웨딩 사진 8' },
   ],
   contact: {
     groomSide: '신랑측 혼주 김영호',

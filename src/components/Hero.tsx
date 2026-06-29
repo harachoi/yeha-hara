@@ -1,4 +1,5 @@
 import { weddingData } from '../data/wedding'
+import { assetUrl } from '../utils/assetUrl'
 
 export function Hero() {
   const { groom, bride, date, heroImage } = weddingData
@@ -7,7 +8,7 @@ export function Hero() {
     <section className="hero">
       <img
         className="hero-image"
-        src={heroImage}
+        src={assetUrl(heroImage)}
         alt={`${groom.name}와 ${bride.name}의 웨딩 사진`}
       />
       <div className="hero-overlay" />

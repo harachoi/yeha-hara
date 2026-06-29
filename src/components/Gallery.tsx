@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { weddingData } from '../data/wedding'
+import { assetUrl } from '../utils/assetUrl'
 
 type GalleryItem = (typeof weddingData.gallery)[number]
 
@@ -123,7 +124,7 @@ export function Gallery() {
                 onClick={() => setActiveIndex(index)}
                 aria-label={`${item.alt} 크게 보기`}
               >
-                <img src={item.src} alt={item.alt} loading="lazy" />
+                <img src={assetUrl(item.src)} alt={item.alt} loading="lazy" />
               </button>
             ))}
           </div>
@@ -172,7 +173,7 @@ export function Gallery() {
           <div className="gallery-lightbox-content">
             <img
               key={activeIndex}
-              src={activeItem.src}
+              src={assetUrl(activeItem.src)}
               alt={activeItem.alt}
               className={
                 slideDirection
