@@ -25,10 +25,6 @@ export function Hero() {
         </p>
         <p className="hero-weekday">{date.weekday} · {date.time}</p>
       </div>
-      <div className="scroll-hint">
-        <span>scroll</span>
-        <div className="scroll-line" />
-      </div>
     </section>
   )
 }

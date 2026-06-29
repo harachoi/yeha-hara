@@ -9,16 +9,16 @@ export function Invitation() {
       <h2 className="section-title">초대합니다</h2>
 
       <div className="parents">
-        <div className="parent-row">
-          <span className="parent-label">신랑</span>
-          <span>{groom.father} · {groom.mother}</span>
-          <span className="child-name">의 아들 <strong>{groom.name}</strong></span>
-        </div>
-        <div className="parent-row">
-          <span className="parent-label">신부</span>
-          <span>{bride.father} · {bride.mother}</span>
-          <span className="child-name">의 딸 <strong>{bride.name}</strong></span>
-        </div>
+        <p className="parent-line">
+          {groom.father} · {groom.mother}
+          <span className="parent-of"> 의 </span>
+          {groom.relation} <strong>{groom.name}</strong>
+        </p>
+        <p className="parent-line">
+          {bride.father} · {bride.mother}
+          <span className="parent-of"> 의 </span>
+          {bride.relation} <strong>{bride.name}</strong>
+        </p>
       </div>
 
       <p className="message">{parentsMessage}</p>
