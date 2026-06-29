@@ -55,9 +55,6 @@ export function Countdown() {
 
   return (
     <div className="countdown">
-      <p className="countdown-label">
-        {timeLeft.ended ? '오늘은 결혼식 날입니다' : '결혼식까지 남은 시간'}
-      </p>
       <div className="countdown-timer">
         {units.map((unit, index) => (
           <div key={unit.label} className="countdown-unit-wrap">

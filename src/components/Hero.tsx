@@ -13,7 +13,6 @@ export function Hero() {
       />
       <div className="hero-overlay" />
       <div className="hero-content">
-        <p className="hero-subtitle">Wedding Invitation</p>
         <h1 className="hero-names">
           <span>{groom.name}</span>
           <span className="hero-amp">&</span>

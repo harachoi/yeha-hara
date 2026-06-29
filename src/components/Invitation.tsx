@@ -4,9 +4,8 @@ export function Invitation() {
   const { groom, bride, parentsMessage } = weddingData
 
   return (
-    <section className="section invitation">
+    <section className="section invitation scroll-reveal">
       <p className="section-label">Invitation</p>
-      <h2 className="section-title">초대합니다</h2>
 
       <div className="parents">
         <p className="parent-line">

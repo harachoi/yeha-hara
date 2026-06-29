@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { weddingData } from '../data/wedding'
-import { assetUrl } from '../utils/assetUrl'
 
 type GalleryItem = (typeof weddingData.gallery)[number]
 
@@ -107,8 +106,8 @@ export function Gallery() {
   const activeItem = activeIndex !== null ? gallery[activeIndex] : null
 
   return (
-    <section className="section gallery-section">
-      <h2 className="gallery-title">갤러리</h2>
+    <section className="section gallery-section scroll-reveal">
+      <p className="section-label">Gallery</p>
 
       <div className="gallery-rows">
         {rows.map((row, rowIndex) => (
@@ -124,7 +123,7 @@ export function Gallery() {
                 onClick={() => setActiveIndex(index)}
                 aria-label={`${item.alt} 크게 보기`}
               >
-                <img src={assetUrl(item.src)} alt={item.alt} loading="lazy" />
+                <img src={item.src} alt={item.alt} loading="lazy" />
               </button>
             ))}
           </div>
@@ -173,7 +172,7 @@ export function Gallery() {
           <div className="gallery-lightbox-content">
             <img
               key={activeIndex}
-              src={assetUrl(activeItem.src)}
+              src={activeItem.src}
               alt={activeItem.alt}
               className={
                 slideDirection

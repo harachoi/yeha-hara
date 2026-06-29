@@ -14,16 +14,11 @@ export function Calendar() {
   for (let d = 1; d <= daysInMonth; d++) days.push(d)
 
   return (
-    <section className="section calendar-section">
+    <section className="section calendar-section scroll-reveal">
       <div className="poetic-date">
         <p className="poetic-month">{getPoeticMonth(date.month)}</p>
         <p className="poetic-day">{getPoeticDay(date.day)}</p>
-        <p className="poetic-time">{formatWeddingTime(date.hour, date.minute)}</p>
       </div>
-
-      <h2 className="calendar-title">
-        {date.year}년 {date.month}월
-      </h2>
 
       <div className="calendar">
         <div className="calendar-weekdays">
@@ -34,18 +29,30 @@ export function Calendar() {
           ))}
         </div>
         <div className="calendar-days">
-          {days.map((d, i) => (
-            <span
-              key={i}
-              className={[
-                d === date.day ? 'wedding-day' : '',
-                d && (i % 7 === 0) ? 'sun' : '',
-                d && (i % 7 === 6) ? 'sat' : '',
-              ].filter(Boolean).join(' ')}
-            >
-              {d ?? ''}
-            </span>
-          ))}
+          {days.map((d, i) => {
+            if (d === date.day) {
+              return (
+                <span key={i} className="wedding-day-wrap">
+                  <span className="wedding-day">{d}</span>
+                  <span className="wedding-time">
+                    {formatWeddingTime(date.hour, date.minute)}
+                  </span>
+                </span>
+              )
+            }
+
+            return (
+              <span
+                key={i}
+                className={[
+                  d && (i % 7 === 0) ? 'sun' : '',
+                  d && (i % 7 === 6) ? 'sat' : '',
+                ].filter(Boolean).join(' ')}
+              >
+                {d ?? ''}
+              </span>
+            )
+          })}
         </div>
       </div>
 

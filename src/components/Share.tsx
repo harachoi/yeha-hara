@@ -41,7 +41,8 @@ export function Share() {
   }
 
   return (
-    <section className="section share-section">
+    <section className="section share-section scroll-reveal">
+      <p className="section-label">Share</p>
       <div className="share-buttons">
         <button type="button" className="btn-share" onClick={handleKakaoShare}>
           카카오톡 공유

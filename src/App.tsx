@@ -1,14 +1,16 @@
+import { useScrollReveal } from './hooks/useScrollReveal'
 import { Hero } from './components/Hero'
 import { Invitation } from './components/Invitation'
 import { Calendar } from './components/Calendar'
 import { Gallery } from './components/Gallery'
 import { Venue } from './components/Venue'
 import { Account } from './components/Account'
-import { Contact } from './components/Contact'
 import { Share } from './components/Share'
 import { Footer } from './components/Footer'
 
 function App() {
+  useScrollReveal()
+
   return (
     <div className="app">
       <Hero />
@@ -17,7 +19,6 @@ function App() {
       <Gallery />
       <Venue />
       <Account />
-      <Contact />
       <Share />
       <Footer />
     </div>

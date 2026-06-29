@@ -17,6 +17,7 @@ function PeopleIcon() {
 
 function AccountRow({ entry }: { entry: AccountEntry }) {
   const [copied, setCopied] = useState(false)
+  const isParent = entry.role === '아버지' || entry.role === '어머니'
 
   const copyAccount = async () => {
     const text = `${entry.bank} ${entry.number} (${entry.holder})`
@@ -31,9 +32,13 @@ function AccountRow({ entry }: { entry: AccountEntry }) {
 
   return (
     <div className="account-row">
-      <span className="account-row-label">{entry.role}</span>
+      <span className="account-row-label">
+        {entry.role}
+        {isParent && <span className="account-row-name">{entry.holder}</span>}
+      </span>
       <div className="account-row-info">
-        {entry.bank} {entry.number} ({entry.holder})
+        {entry.bank} {entry.number}
+        {!isParent && ` (${entry.holder})`}
       </div>
       <button type="button" className="account-row-copy" onClick={copyAccount}>
         {copied ? '완료' : '복사하기'}
@@ -45,7 +50,7 @@ function AccountRow({ entry }: { entry: AccountEntry }) {
 function AccountAccordion({ side }: { side: Side }) {
   const [open, setOpen] = useState(false)
   const person = weddingData[side]
-  const title = side === 'groom' ? '신랑 측 계좌번호' : '신부 측 계좌번호'
+  const title = side === 'groom' ? '신랑측에게' : '신부측에게'
 
   return (
     <div className={`account-accordion ${open ? 'is-open' : ''}`}>
@@ -73,12 +78,12 @@ function AccountAccordion({ side }: { side: Side }) {
 
 export function Account() {
   return (
-    <section className="section account-section">
+    <section className="section account-section scroll-reveal">
       <p className="section-label">Account</p>
-      <h2 className="section-title">마음 전하실 곳</h2>
       <p className="account-desc">
-        참석이 어려우신 분들을 위해<br />
-        계좌번호를 안내해 드립니다.
+        직접 축하의 마음을 전해주시기 어려운 분들을 위해<br />
+        조심스러운 마음으로 계좌번호를 함께 안내드립니다.<br />
+        넓은 마음으로 양해 부탁드립니다.
       </p>
 
       <div className="account-accordions">

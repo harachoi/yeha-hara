@@ -6,15 +6,13 @@ export function Venue() {
   const { venue } = weddingData
 
   return (
-    <section className="section venue-section">
+    <section className="section venue-section scroll-reveal">
       <p className="section-label">Location</p>
-      <h2 className="section-title">오시는 길</h2>
 
       <div className="venue-card">
         <h3 className="venue-name">{venue.name}</h3>
         <p className="venue-hall">{venue.hall}</p>
         <p className="venue-address">{venue.address}</p>
-        <p className="venue-phone">Tel. {venue.phone}</p>
       </div>
 
       <NaverMap
