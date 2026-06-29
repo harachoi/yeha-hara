@@ -2,9 +2,7 @@ import heroPhoto from '../assets/hero.jpg'
 import { weddingData } from '../data/wedding'
 import { loadKakaoSdk } from './loadKakaoSdk'
 
-function getShareUrl() {
-  return window.location.href.split('#')[0]
-}
+import { getShareUrl } from './shareUrl'
 
 function getShareImageUrl() {
   return new URL(heroPhoto, window.location.origin).href

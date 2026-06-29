@@ -6,7 +6,6 @@ import { Gallery } from './components/Gallery'
 import { Venue } from './components/Venue'
 import { Account } from './components/Account'
 import { Share } from './components/Share'
-import { Footer } from './components/Footer'
 
 function App() {
   useScrollReveal()
@@ -20,7 +19,6 @@ function App() {
       <Venue />
       <Account />
       <Share />
-      <Footer />
     </div>
   )
 }

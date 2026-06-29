@@ -1,6 +1,7 @@
 import { gallery } from './gallery'
 
 export const weddingData = {
+  shareUrl: 'https://harachoi.github.io/yeha-hara/',
   groom: {
     name: '예하',
     relation: '장남',
