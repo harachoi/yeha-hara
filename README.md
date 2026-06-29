@@ -61,7 +61,7 @@ export const weddingData = {
 
 ## 배포
 
-GitHub Pages로 배포됩니다: `https://harachoi.github.io/wedding/`
+GitHub Pages로 배포됩니다: `https://harachoi.github.io/yeha-hara/`
 
 ```bash
 npm run build
