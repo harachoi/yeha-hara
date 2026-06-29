@@ -8,7 +8,7 @@ export const weddingData = {
     father: '전창남',
     mother: '조미애',
     accounts: [
-      { role: '신랑', bank: '국민', number: '111-1234-5678-99', holder: '예하' },
+      { role: '신랑', bank: '국민', number: '111-1234-5678-99', holder: '전예하' },
       { role: '아버지', bank: '농협', number: '111-1234-5678-99', holder: '전창남' },
       { role: '어머니', bank: '우리', number: '111-1234-5678-99', holder: '조미애' },
     ],
@@ -19,7 +19,7 @@ export const weddingData = {
     father: '최용석',
     mother: '강현주',
     accounts: [
-      { role: '신부', bank: '신한', number: '110-123-456789', holder: '하라' },
+      { role: '신부', bank: '신한', number: '110-123-456789', holder: '최하라' },
       { role: '아버지', bank: '국민', number: '111-1234-5678-99', holder: '최용석' },
       { role: '어머니', bank: '농협', number: '111-1234-5678-99', holder: '강현주' },
     ],

@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import { weddingData } from '../data/wedding'
 import { kakaoShare } from '../utils/kakaoShare'
 import { getShareUrl } from '../utils/shareUrl'
 
 export function Share() {
   const { groom, bride, date } = weddingData
+  const [linkCopied, setLinkCopied] = useState(false)
   const shareText = `${groom.name} ♥ ${bride.name} 결혼식에 초대합니다\n${date.year}.${date.month}.${date.day} ${date.time}`
   const shareTitle = `${groom.name} ♥ ${bride.name} 결혼식`
 
@@ -40,7 +42,15 @@ export function Share() {
   }
 
   const handleShare = async () => {
-    await fallbackShare()
+    const url = getShareUrl()
+
+    try {
+      await navigator.clipboard.writeText(`${shareText}\n${url}`)
+      setLinkCopied(true)
+      window.setTimeout(() => setLinkCopied(false), 2500)
+    } catch {
+      alert('공유 기능을 사용할 수 없습니다.')
+    }
   }
 
   return (
@@ -54,6 +64,11 @@ export function Share() {
           링크 공유
         </button>
       </div>
+      {linkCopied && (
+        <p className="share-copied-message" role="status">
+          청첩장 링크가 복사되었습니다.
+        </p>
+      )}
     </section>
   )
 }

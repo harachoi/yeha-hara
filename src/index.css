@@ -906,6 +906,14 @@ body {
   color: var(--color-white);
 }
 
+.share-copied-message {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  color: var(--color-accent-dark);
+  text-align: center;
+  animation: fadeIn 0.2s ease-out;
+}
+
 /* ── Animations ── */
 @keyframes fadeIn {
   from { opacity: 0; }
