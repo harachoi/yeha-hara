@@ -24,14 +24,6 @@ function CopyIcon() {
   )
 }
 
-function CheckIcon() {
-  return (
-    <svg className="account-copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <path d="M5 12l5 5L19 7" />
-    </svg>
-  )
-}
-
 function AccountRow({ entry }: { entry: AccountEntry }) {
   const [copied, setCopied] = useState(false)
 
@@ -55,14 +47,21 @@ function AccountRow({ entry }: { entry: AccountEntry }) {
       <div className="account-row-info">
         {entry.bank} {entry.number}
       </div>
-      <button
-        type="button"
-        className={`account-row-copy ${copied ? 'is-copied' : ''}`}
-        onClick={copyAccount}
-        aria-label={copied ? '복사 완료' : '계좌번호 복사'}
-      >
-        {copied ? <CheckIcon /> : <CopyIcon />}
-      </button>
+      <div className="account-row-copy-wrap">
+        {copied && (
+          <span className="account-thanks-message" role="status">
+            감사합니다
+          </span>
+        )}
+        <button
+          type="button"
+          className={`account-row-copy ${copied ? 'is-copied' : ''}`}
+          onClick={copyAccount}
+          aria-label={copied ? '복사 완료' : '계좌번호 복사'}
+        >
+          <CopyIcon />
+        </button>
+      </div>
     </div>
   )
 }
@@ -99,7 +98,7 @@ function AccountAccordion({ side }: { side: Side }) {
 export function Account() {
   return (
     <section className="section account-section scroll-reveal">
-      <p className="section-label scroll-reveal-item">Account</p>
+      <p className="section-label scroll-reveal-item">마음 전하실 곳</p>
       <p className="account-desc scroll-reveal-item">
         직접 축하의 마음을 전해주시기 어려운 분들을 위해<br />
         조심스러운 마음으로 계좌번호를 함께 안내드립니다.<br />

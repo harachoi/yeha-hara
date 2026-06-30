@@ -4,6 +4,8 @@ export const weddingData = {
   shareUrl: 'https://harachoi.github.io/yeha-hara/',
   groom: {
     name: '예하',
+    fullName: '전예하',
+    englishName: 'Yeha',
     relation: '장남',
     father: '전창남',
     mother: '조미애',
@@ -15,6 +17,8 @@ export const weddingData = {
   },
   bride: {
     name: '하라',
+    fullName: '최하라',
+    englishName: 'Hara',
     relation: '장녀',
     father: '최용석',
     mother: '강현주',
@@ -48,7 +52,7 @@ export const weddingData = {
     transport: {
       subway: [
         '3호선·8호선 가락시장역 2번 출구 하차',
-        '도보 약 오분',
+        '도보 약 5분',
       ],
       bus: [
         '가락시장·가락시장역·가락몰 정류장 하차',

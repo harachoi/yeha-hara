@@ -1,35 +1,54 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { weddingData } from '../data/wedding'
-import { PhotoWaves } from './PhotoWaves'
 
-type GalleryItem = (typeof weddingData.gallery)[number]
+type RowVariant = 'hero' | 'trio' | 'duo' | 'solo'
 
 type GalleryRow = {
-  cols: 2 | 3
-  items: { item: GalleryItem; index: number }[]
+  variant: RowVariant
+  items: { item: (typeof weddingData.gallery)[number]; index: number }[]
 }
 
-function getGalleryRows(gallery: GalleryItem[]): GalleryRow[] {
+function getGalleryRows(
+  gallery: (typeof weddingData.gallery),
+): GalleryRow[] {
   const rows: GalleryRow[] = []
   let i = 0
+
+  if (i < gallery.length) {
+    rows.push({
+      variant: 'hero',
+      items: [{ item: gallery[i], index: i }],
+    })
+    i += 1
+  }
 
   while (i < gallery.length) {
     const remaining = gallery.length - i
 
-    if (remaining <= 2) {
+    if (remaining >= 3) {
       rows.push({
-        cols: 2,
-        items: gallery.slice(i).map((item, offset) => ({ item, index: i + offset })),
+        variant: 'trio',
+        items: gallery.slice(i, i + 3).map((item, offset) => ({ item, index: i + offset })),
       })
-      break
+      i += 3
+      continue
+    }
+
+    if (remaining === 2) {
+      rows.push({
+        variant: 'duo',
+        items: gallery.slice(i, i + 2).map((item, offset) => ({ item, index: i + offset })),
+      })
+      i += 2
+      continue
     }
 
     rows.push({
-      cols: 3,
-      items: gallery.slice(i, i + 3).map((item, offset) => ({ item, index: i + offset })),
+      variant: 'solo',
+      items: [{ item: gallery[i], index: i }],
     })
-    i += 3
+    i += 1
   }
 
   return rows
@@ -41,6 +60,7 @@ export function Gallery() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const touchStartX = useRef(0)
   const touchStartY = useRef(0)
+  const scrollLockY = useRef(0)
 
   const close = useCallback(() => {
     setActiveIndex(null)
@@ -75,24 +95,20 @@ export function Gallery() {
     else showNext()
   }
 
+  const activeItem = activeIndex !== null ? gallery[activeIndex] : null
+  const lightboxOpen = activeIndex !== null
+
   useEffect(() => {
-    if (activeIndex === null) return
+    if (!lightboxOpen) return
 
-    const scrollY = window.scrollY
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') close()
-      if (event.key === 'ArrowLeft') showPrev()
-      if (event.key === 'ArrowRight') showNext()
-    }
+    scrollLockY.current = window.scrollY
 
     document.body.style.position = 'fixed'
-    document.body.style.top = `-${scrollY}px`
+    document.body.style.top = `-${scrollLockY.current}px`
     document.body.style.left = '0'
     document.body.style.right = '0'
     document.body.style.width = '100%'
     document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', handleKeyDown)
 
     return () => {
       document.body.style.position = ''
@@ -101,38 +117,60 @@ export function Gallery() {
       document.body.style.right = ''
       document.body.style.width = ''
       document.body.style.overflow = ''
-      window.scrollTo(0, scrollY)
+      window.scrollTo(0, scrollLockY.current)
+    }
+  }, [lightboxOpen])
+
+  useEffect(() => {
+    if (activeIndex === null) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') close()
+      if (event.key === 'ArrowLeft') showPrev()
+      if (event.key === 'ArrowRight') showNext()
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [activeIndex, close, showNext, showPrev])
 
   if (gallery.length === 0) return null
 
-  const activeItem = activeIndex !== null ? gallery[activeIndex] : null
-
   return (
     <section className="section gallery-section">
-      <p className="section-label">Gallery</p>
+      <div className="scroll-reveal gallery-panel">
+        <div className="gallery-header scroll-reveal-item">
+          <p className="section-label">Gallery</p>
+          <p className="gallery-subtitle">우리의 순간들</p>
+        </div>
 
-      <div className="gallery-rows">
-        {rows.map((row, rowIndex) => (
-          <div
-            key={rowIndex}
-            className={`gallery-row gallery-row-${row.cols}`}
-          >
-            {row.items.map(({ item, index }) => (
-              <button
-                key={item.src}
-                type="button"
-                className="gallery-item"
-                onClick={() => setActiveIndex(index)}
-                aria-label={`${item.alt} 크게 보기`}
-              >
-                <img src={item.src} alt={item.alt} loading="lazy" />
-              </button>
-            ))}
-          </div>
-        ))}
+        <div className="gallery-rows">
+          {rows.map((row, rowIndex) => (
+            <div
+              key={rowIndex}
+              className={`gallery-row gallery-row--${row.variant}`}
+            >
+              {row.items.map(({ item, index }) => (
+                <button
+                  key={item.src}
+                  type="button"
+                  className={`gallery-item gallery-item--${row.variant} gallery-item-reveal`}
+                  style={{ ['--item-index' as string]: index }}
+                  onClick={() => setActiveIndex(index)}
+                  aria-label={`${item.alt} 크게 보기`}
+                >
+                  <span className="gallery-frame">
+                    <img src={item.src} alt={item.alt} loading="lazy" />
+                    <span className="gallery-frame-shine" aria-hidden="true" />
+                  </span>
+                </button>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
 
       {activeItem && activeIndex !== null && createPortal(
@@ -181,7 +219,6 @@ export function Gallery() {
                 src={activeItem.src}
                 alt={activeItem.alt}
               />
-              <PhotoWaves className="photo-waves--lightbox" />
             </div>
             <p className="gallery-lightbox-caption">
               {activeIndex + 1} / {gallery.length}

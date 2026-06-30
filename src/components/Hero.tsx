@@ -1,6 +1,9 @@
 import heroPhoto from '../assets/hero.jpg'
 import { weddingData } from '../data/wedding'
+import { HeroNameWord } from './HeroNameWord'
 import { PhotoWaves } from './PhotoWaves'
+
+const HERO_TAGLINE = 'We are getting Married'
 
 export function Hero() {
   const { groom, bride } = weddingData
@@ -17,10 +20,8 @@ export function Hero() {
       <PhotoWaves className="photo-waves--hero" />
       <div className="hero-overlay" />
       <div className="hero-content">
-        <h1 className="hero-names">
-          <span>{groom.name}</span>
-          <span className="hero-amp">&</span>
-          <span>{bride.name}</span>
+        <h1 className="hero-names" aria-label={HERO_TAGLINE}>
+          <HeroNameWord text={HERO_TAGLINE} startDelay={0.7} />
         </h1>
       </div>
     </section>

@@ -5,7 +5,7 @@ import { Countdown } from './Countdown'
 const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토']
 
 export function Calendar() {
-  const { date, parentsMessage } = weddingData
+  const { date, parentsMessage, groom, bride } = weddingData
   const firstDay = new Date(date.year, date.month - 1, 1).getDay()
   const daysInMonth = new Date(date.year, date.month, 0).getDate()
   const days: (number | null)[] = []
@@ -18,6 +18,11 @@ export function Calendar() {
       <div className="calendar-message-wrap">
         <div className="scroll-reveal calendar-message-content">
           <p className="message calendar-message scroll-reveal-item">{parentsMessage}</p>
+          <p className="calendar-couple-names scroll-reveal-item">
+            <span>신랑 {groom.fullName}</span>
+            <span className="calendar-couple-dot" aria-hidden="true">·</span>
+            <span>신부 {bride.fullName}</span>
+          </p>
         </div>
       </div>
 
