@@ -54,7 +54,7 @@ export function Share() {
   }
 
   return (
-    <section className="section share-section scroll-reveal">
+    <section className="section share-section">
       <p className="section-label">Share</p>
       <div className="share-buttons">
         <button type="button" className="btn-share" onClick={handleKakaoShare}>

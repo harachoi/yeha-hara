@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { weddingData } from '../data/wedding'
+import { PhotoWaves } from './PhotoWaves'
 
 type GalleryItem = (typeof weddingData.gallery)[number]
 
@@ -37,17 +39,14 @@ export function Gallery() {
   const { gallery } = weddingData
   const rows = getGalleryRows(gallery)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
-  const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null)
   const touchStartX = useRef(0)
   const touchStartY = useRef(0)
 
   const close = useCallback(() => {
     setActiveIndex(null)
-    setSlideDirection(null)
   }, [])
 
   const showPrev = useCallback(() => {
-    setSlideDirection('right')
     setActiveIndex((index) => {
       if (index === null || gallery.length === 0) return index
       return (index - 1 + gallery.length) % gallery.length
@@ -55,7 +54,6 @@ export function Gallery() {
   }, [gallery.length])
 
   const showNext = useCallback(() => {
-    setSlideDirection('left')
     setActiveIndex((index) => {
       if (index === null || gallery.length === 0) return index
       return (index + 1) % gallery.length
@@ -80,33 +78,40 @@ export function Gallery() {
   useEffect(() => {
     if (activeIndex === null) return
 
+    const scrollY = window.scrollY
+
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') close()
       if (event.key === 'ArrowLeft') showPrev()
       if (event.key === 'ArrowRight') showNext()
     }
 
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${scrollY}px`
+    document.body.style.left = '0'
+    document.body.style.right = '0'
+    document.body.style.width = '100%'
     document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.left = ''
+      document.body.style.right = ''
+      document.body.style.width = ''
       document.body.style.overflow = ''
+      window.scrollTo(0, scrollY)
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [activeIndex, close, showNext, showPrev])
-
-  useEffect(() => {
-    if (slideDirection === null) return
-    const timer = window.setTimeout(() => setSlideDirection(null), 250)
-    return () => window.clearTimeout(timer)
-  }, [activeIndex, slideDirection])
 
   if (gallery.length === 0) return null
 
   const activeItem = activeIndex !== null ? gallery[activeIndex] : null
 
   return (
-    <section className="section gallery-section scroll-reveal">
+    <section className="section gallery-section">
       <p className="section-label">Gallery</p>
 
       <div className="gallery-rows">
@@ -130,7 +135,7 @@ export function Gallery() {
         ))}
       </div>
 
-      {activeItem && activeIndex !== null && (
+      {activeItem && activeIndex !== null && createPortal(
         <div
           className="gallery-lightbox"
           role="dialog"
@@ -170,21 +175,20 @@ export function Gallery() {
           )}
 
           <div className="gallery-lightbox-content">
-            <img
-              key={activeIndex}
-              src={activeItem.src}
-              alt={activeItem.alt}
-              className={
-                slideDirection
-                  ? `gallery-slide-${slideDirection}`
-                  : ''
-              }
-            />
+            <div className="gallery-lightbox-media">
+              <img
+                key={activeIndex}
+                src={activeItem.src}
+                alt={activeItem.alt}
+              />
+              <PhotoWaves className="photo-waves--lightbox" />
+            </div>
             <p className="gallery-lightbox-caption">
               {activeIndex + 1} / {gallery.length}
             </p>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </section>
   )

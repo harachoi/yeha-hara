@@ -5,7 +5,7 @@ import { Countdown } from './Countdown'
 const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토']
 
 export function Calendar() {
-  const { date } = weddingData
+  const { date, parentsMessage } = weddingData
   const firstDay = new Date(date.year, date.month - 1, 1).getDay()
   const daysInMonth = new Date(date.year, date.month, 0).getDate()
   const days: (number | null)[] = []
@@ -14,12 +14,19 @@ export function Calendar() {
   for (let d = 1; d <= daysInMonth; d++) days.push(d)
 
   return (
-    <section className="section calendar-section scroll-reveal">
-      <p className="calendar-date-header">
+    <section className="section calendar-section">
+      <div className="calendar-message-wrap">
+        <div className="scroll-reveal calendar-message-content">
+          <p className="message calendar-message scroll-reveal-item">{parentsMessage}</p>
+        </div>
+      </div>
+
+      <div className="scroll-reveal calendar-body">
+      <p className="calendar-date-header scroll-reveal-item">
         {date.year}년 {date.month}월
       </p>
 
-      <div className="calendar">
+      <div className="calendar scroll-reveal-item">
         <div className="calendar-weekdays">
           {WEEKDAYS.map((d) => (
             <span key={d} className={d === '일' ? 'sun' : d === '토' ? 'sat' : ''}>
@@ -55,7 +62,10 @@ export function Calendar() {
         </div>
       </div>
 
-      <Countdown />
+      <div className="scroll-reveal-item">
+        <Countdown />
+      </div>
+      </div>
     </section>
   )
 }

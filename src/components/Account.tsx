@@ -99,14 +99,14 @@ function AccountAccordion({ side }: { side: Side }) {
 export function Account() {
   return (
     <section className="section account-section scroll-reveal">
-      <p className="section-label">Account</p>
-      <p className="account-desc">
+      <p className="section-label scroll-reveal-item">Account</p>
+      <p className="account-desc scroll-reveal-item">
         직접 축하의 마음을 전해주시기 어려운 분들을 위해<br />
         조심스러운 마음으로 계좌번호를 함께 안내드립니다.<br />
         넓은 마음으로 양해 부탁드립니다.
       </p>
 
-      <div className="account-accordions">
+      <div className="account-accordions scroll-reveal-item">
         <AccountAccordion side="groom" />
         <AccountAccordion side="bride" />
       </div>

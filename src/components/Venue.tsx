@@ -1,28 +1,30 @@
 import { weddingData } from '../data/wedding'
 import { NaverMap } from './NaverMap'
-import { BusIcon, ParkingIcon, SubwayIcon } from './TransportIcons'
 
 export function Venue() {
   const { venue } = weddingData
 
   return (
-    <section className="section venue-section scroll-reveal">
-      <p className="section-label">Location</p>
+    <section className="section venue-section">
+      <div className="scroll-reveal venue-content">
+        <p className="section-label scroll-reveal-item">Location</p>
 
-      <div className="venue-card">
+        <div className="venue-card scroll-reveal-item">
         <h3 className="venue-name">{venue.name}</h3>
         <p className="venue-hall">{venue.hall}</p>
         <p className="venue-address">{venue.address}</p>
       </div>
 
-      <NaverMap
-        lat={venue.coords.lat}
-        lng={venue.coords.lng}
-        name={venue.name}
-        embedUrl={venue.mapEmbedUrl || undefined}
-      />
+      <div className="scroll-reveal-item">
+        <NaverMap
+          lat={venue.coords.lat}
+          lng={venue.coords.lng}
+          name={venue.name}
+          embedUrl={venue.mapEmbedUrl || undefined}
+        />
+      </div>
 
-      <div className="map-buttons">
+      <div className="map-buttons scroll-reveal-item">
         <a href={venue.mapUrl} target="_blank" rel="noopener noreferrer" className="btn-map">
           카카오맵
         </a>
@@ -31,14 +33,9 @@ export function Venue() {
         </a>
       </div>
 
-      <div className="transport-guide">
+      <div className="transport-guide scroll-reveal-item">
         <div className="transport-item">
-          <h3 className="transport-title">
-            <span className="transport-icon">
-              <SubwayIcon />
-            </span>
-            지하철
-          </h3>
+          <h3 className="transport-title">지하철</h3>
           <ul className="transport-list">
             {venue.transport.subway.map((line) => (
               <li key={line}>{line}</li>
@@ -47,12 +44,7 @@ export function Venue() {
         </div>
 
         <div className="transport-item">
-          <h3 className="transport-title">
-            <span className="transport-icon">
-              <BusIcon />
-            </span>
-            버스
-          </h3>
+          <h3 className="transport-title">버스</h3>
           <ul className="transport-list">
             {venue.transport.bus.map((line) => (
               <li key={line}>{line}</li>
@@ -61,18 +53,14 @@ export function Venue() {
         </div>
 
         <div className="transport-item">
-          <h3 className="transport-title">
-            <span className="transport-icon">
-              <ParkingIcon />
-            </span>
-            주차
-          </h3>
+          <h3 className="transport-title">주차</h3>
           <ul className="transport-list">
             {venue.transport.parking.map((line) => (
               <li key={line}>{line}</li>
             ))}
           </ul>
         </div>
+      </div>
       </div>
     </section>
   )
