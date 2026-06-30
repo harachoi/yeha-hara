@@ -112,20 +112,23 @@ body {
 .hero-names {
   display: flex;
   justify-content: center;
+  width: 100%;
   margin: 0;
   line-height: 1.2;
   overflow: visible;
 }
 
 .hero-name-word {
-  display: inline;
+  display: inline-block;
   overflow: visible;
+  white-space: nowrap;
   font-family: var(--font-script);
-  font-size: clamp(2rem, 8.2vw, 2.85rem);
+  font-size: clamp(1.85rem, 6.5vw, 2.5rem);
   font-weight: 400;
   color: rgba(255, 255, 255, 0.82);
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
   text-align: center;
+  max-width: 100%;
 }
 
 .hero-letter {
@@ -1151,6 +1154,31 @@ body {
 
 .gallery-item--solo img {
   aspect-ratio: 16 / 10;
+}
+
+.gallery-more-btn {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  margin: 1.65rem auto 0;
+  padding: 0.9rem 2.5rem;
+  border: 1px solid var(--color-calendar-border);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--color-calendar-time);
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.gallery-more-btn:hover,
+.gallery-more-btn:active,
+.gallery-more-btn:focus-visible {
+  background: var(--color-calendar);
+  border-color: var(--color-calendar);
+  color: var(--color-white);
 }
 
 .gallery-lightbox {

@@ -7,6 +7,12 @@ import gallery06 from '../assets/gallery/06.jpg'
 import gallery07 from '../assets/gallery/07.jpg'
 import gallery08 from '../assets/gallery/08.jpg'
 import gallery09 from '../assets/gallery/09.jpg'
+import gallery10 from '../assets/gallery/10.jpg'
+import gallery11 from '../assets/gallery/11.jpg'
+import gallery12 from '../assets/gallery/12.jpg'
+import gallery13 from '../assets/gallery/13.jpg'
+import gallery14 from '../assets/gallery/14.jpg'
+import gallery15 from '../assets/gallery/15.jpg'
 
 export const gallery = [
   { src: gallery01, alt: '웨딩 사진 1' },
@@ -18,4 +24,10 @@ export const gallery = [
   { src: gallery07, alt: '웨딩 사진 7' },
   { src: gallery08, alt: '웨딩 사진 8' },
   { src: gallery09, alt: '웨딩 사진 9' },
+  { src: gallery10, alt: '웨딩 사진 10' },
+  { src: gallery11, alt: '웨딩 사진 11' },
+  { src: gallery12, alt: '웨딩 사진 12' },
+  { src: gallery13, alt: '웨딩 사진 13' },
+  { src: gallery14, alt: '웨딩 사진 14' },
+  { src: gallery15, alt: '웨딩 사진 15' },
 ]

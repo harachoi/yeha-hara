@@ -9,6 +9,8 @@ type GalleryRow = {
   items: { item: (typeof weddingData.gallery)[number]; index: number }[]
 }
 
+const INITIAL_TRIO_ROWS = 2
+
 function getGalleryRows(
   gallery: (typeof weddingData.gallery),
 ): GalleryRow[] {
@@ -54,10 +56,53 @@ function getGalleryRows(
   return rows
 }
 
+function hasMoreGalleryRows(rows: GalleryRow[]): boolean {
+  let trioCount = 0
+
+  for (const row of rows) {
+    if (row.variant === 'hero') continue
+
+    if (row.variant === 'trio') {
+      trioCount += 1
+      if (trioCount > INITIAL_TRIO_ROWS) return true
+      continue
+    }
+
+    return true
+  }
+
+  return false
+}
+
+function getVisibleGalleryRows(rows: GalleryRow[], expanded: boolean): GalleryRow[] {
+  if (expanded) return rows
+
+  const visible: GalleryRow[] = []
+  let trioCount = 0
+
+  for (const row of rows) {
+    if (row.variant === 'hero') {
+      visible.push(row)
+      continue
+    }
+
+    if (row.variant === 'trio') {
+      trioCount += 1
+      if (trioCount <= INITIAL_TRIO_ROWS) visible.push(row)
+      continue
+    }
+  }
+
+  return visible
+}
+
 export function Gallery() {
   const { gallery } = weddingData
   const rows = getGalleryRows(gallery)
+  const [expanded, setExpanded] = useState(false)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const visibleRows = getVisibleGalleryRows(rows, expanded)
+  const canExpand = hasMoreGalleryRows(rows)
   const touchStartX = useRef(0)
   const touchStartY = useRef(0)
   const scrollLockY = useRef(0)
@@ -148,7 +193,7 @@ export function Gallery() {
         </div>
 
         <div className="gallery-rows">
-          {rows.map((row, rowIndex) => (
+          {visibleRows.map((row, rowIndex) => (
             <div
               key={rowIndex}
               className={`gallery-row gallery-row--${row.variant}`}
@@ -171,6 +216,17 @@ export function Gallery() {
             </div>
           ))}
         </div>
+
+        {canExpand && (
+          <button
+            type="button"
+            className="gallery-more-btn"
+            onClick={() => setExpanded((value) => !value)}
+            aria-expanded={expanded}
+          >
+            {expanded ? '접기' : '더보기'}
+          </button>
+        )}
       </div>
 
       {activeItem && activeIndex !== null && createPortal(
