@@ -264,15 +264,15 @@ body {
 }
 
 .photo-waves--hero .photo-waves__track--bottom-1 {
-  animation-duration: 40s;
+  animation-duration: 20s;
 }
 
 .photo-waves--hero .photo-waves__track--bottom-2 {
-  animation-duration: 32s;
+  animation-duration: 13s;
 }
 
 .photo-waves--hero .photo-waves__track--bottom-3 {
-  animation-duration: 24s;
+  animation-duration: 9s;
 }
 
 @media (prefers-reduced-motion: reduce) {
