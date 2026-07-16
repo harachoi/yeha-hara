@@ -397,6 +397,9 @@ body {
   font-size: 0.95rem;
   line-height: 2;
   white-space: pre-line;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-break: strict;
   color: var(--color-text);
 }
 
@@ -436,6 +439,9 @@ body {
   letter-spacing: 0.02em;
   color: var(--color-calendar-time);
   white-space: pre-line;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-break: strict;
 }
 
 .invitation-verse-ref {
