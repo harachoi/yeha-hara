@@ -482,6 +482,12 @@ body {
 
 .calendar-message {
   margin-bottom: 0;
+  font-size: 0.92rem;
+  letter-spacing: -0.02em;
+}
+
+.calendar-message .no-break {
+  white-space: nowrap;
 }
 
 .calendar-couple-names {

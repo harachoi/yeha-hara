@@ -25,7 +25,9 @@ export function Calendar() {
             <cite className="invitation-verse-ref">{invitationVerse.reference}</cite>
           </blockquote>
           <p className="message calendar-message scroll-reveal-item invitation-reveal-message">
-            {parentsMessage}
+            {parentsMessage.before}
+            <span className="no-break">{parentsMessage.keepTogether}</span>
+            {parentsMessage.after}
           </p>
           <p className="calendar-couple-names scroll-reveal-item invitation-reveal-names">
             <span>신랑 {groom.fullName}</span>
