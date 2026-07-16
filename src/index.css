@@ -448,6 +448,22 @@ body {
   color: var(--color-text-light);
 }
 
+.calendar-message-content.is-visible .scroll-reveal-item.invitation-reveal-label {
+  transition-delay: 0.06s;
+}
+
+.calendar-message-content.is-visible .scroll-reveal-item.invitation-reveal-verse {
+  transition-delay: 0.22s;
+}
+
+.calendar-message-content.is-visible .scroll-reveal-item.invitation-reveal-message {
+  transition-delay: 0.62s;
+}
+
+.calendar-message-content.is-visible .scroll-reveal-item.invitation-reveal-names {
+  transition-delay: 0.88s;
+}
+
 .calendar-message-content.scroll-reveal {
   opacity: 1;
   transform: none;

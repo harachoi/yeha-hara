@@ -17,15 +17,17 @@ export function Calendar() {
     <section className="section calendar-section">
       <div className="calendar-message-wrap">
         <div className="scroll-reveal calendar-message-content">
-          <p className="section-label calendar-invitation-label scroll-reveal-item">
+          <p className="section-label calendar-invitation-label scroll-reveal-item invitation-reveal-label">
             Invitation
           </p>
-          <blockquote className="invitation-verse scroll-reveal-item">
+          <blockquote className="invitation-verse scroll-reveal-item invitation-reveal-verse">
             <p className="invitation-verse-text">{invitationVerse.text}</p>
             <cite className="invitation-verse-ref">{invitationVerse.reference}</cite>
           </blockquote>
-          <p className="message calendar-message scroll-reveal-item">{parentsMessage}</p>
-          <p className="calendar-couple-names scroll-reveal-item">
+          <p className="message calendar-message scroll-reveal-item invitation-reveal-message">
+            {parentsMessage}
+          </p>
+          <p className="calendar-couple-names scroll-reveal-item invitation-reveal-names">
             <span>신랑 {groom.fullName}</span>
             <span className="calendar-couple-dot" aria-hidden="true">·</span>
             <span>신부 {bride.fullName}</span>
