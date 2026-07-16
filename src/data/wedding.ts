@@ -66,6 +66,11 @@ export const weddingData = {
     },
   },
   
+  bibleVerse: {
+    text: `이 모든 것 위에 사랑을 더하라
+이는 온전하게 매는 띠니라`,
+    reference: '골로새서 3:14',
+  },
   parentsMessage: `시기마다 늘 찾아오는 사계절과 같이
 언제나 차가운 바람이 불 때면
 서로의 온기가 되어주고,

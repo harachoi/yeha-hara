@@ -397,6 +397,45 @@ body {
   padding-top: 0;
 }
 
+.bible-verse-section {
+  background: var(--color-bg);
+  padding: 3.25rem 1.8rem;
+  box-shadow:
+    inset 0 1px 0 rgba(212, 181, 171, 0.12),
+    inset 0 -1px 0 rgba(212, 181, 171, 0.12);
+}
+
+.bible-verse-content {
+  max-width: 20rem;
+  margin: 0 auto;
+}
+
+.bible-verse {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.bible-verse-text {
+  margin: 0;
+  font-family: var(--font-poetic);
+  font-size: 1.28rem;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  color: var(--color-calendar-time);
+  white-space: pre-line;
+}
+
+.bible-verse-ref {
+  display: block;
+  margin-top: 0.85rem;
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-style: normal;
+  letter-spacing: 0.06em;
+  color: var(--color-text-light);
+}
+
 .calendar-message-wrap {
   background: var(--color-white);
   margin: 0 -1.8rem 2.5rem;
@@ -587,6 +626,11 @@ body {
 /* ── Venue ── */
 .venue-section {
   background: var(--color-white);
+  padding: 1.5rem 1.8rem 4rem;
+}
+
+.venue-section .section-label {
+  margin-bottom: 1.5rem;
 }
 
 .venue-content.scroll-reveal {
@@ -979,7 +1023,7 @@ body {
 /* ── Gallery ── */
 .gallery-section {
   background: var(--color-white);
-  padding: 0 1.8rem 4rem;
+  padding: 0 1.8rem 1.5rem;
 }
 
 .gallery-panel.scroll-reveal {
