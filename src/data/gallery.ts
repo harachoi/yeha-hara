@@ -8,6 +8,8 @@ import gallery07 from '../assets/gallery/07.jpg'
 import gallery08 from '../assets/gallery/08.jpg'
 import gallery09 from '../assets/gallery/09.jpg'
 import gallery10 from '../assets/gallery/10.jpg'
+import gallery11 from '../assets/gallery/11.jpg'
+import gallery12 from '../assets/gallery/12.jpg'
 
 export const gallery = [
   { src: gallery01, alt: '웨딩 사진 1' },
@@ -20,4 +22,6 @@ export const gallery = [
   { src: gallery08, alt: '웨딩 사진 8' },
   { src: gallery09, alt: '웨딩 사진 9' },
   { src: gallery10, alt: '웨딩 사진 10' },
+  { src: gallery11, alt: '웨딩 사진 11' },
+  { src: gallery12, alt: '웨딩 사진 12' },
 ]
