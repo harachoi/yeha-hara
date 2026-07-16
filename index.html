@@ -12,15 +12,23 @@
     <script>
       (function () {
         var locked = false
-        function lockHeroHeight() {
+        function lockHeroAspect() {
           if (locked) return
-          var height = window.innerHeight || document.documentElement.clientHeight
-          if (!height) return
+          var width = Math.min(
+            document.documentElement.clientWidth || window.innerWidth || 0,
+            430,
+          )
+          var height = window.innerHeight || document.documentElement.clientHeight || 0
+          if (!width || !height) return
           locked = true
-          document.documentElement.style.setProperty('--hero-height', height + 'px')
+          // Width-based aspect ratio: hero height won't change when browser chrome resizes.
+          document.documentElement.style.setProperty(
+            '--hero-aspect',
+            width + ' / ' + height,
+          )
         }
-        lockHeroHeight()
-        window.addEventListener('DOMContentLoaded', lockHeroHeight, { once: true })
+        lockHeroAspect()
+        window.addEventListener('DOMContentLoaded', lockHeroAspect, { once: true })
       })()
     </script>
   </head>
