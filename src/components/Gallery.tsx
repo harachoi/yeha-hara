@@ -189,7 +189,6 @@ export function Gallery() {
       <div className="scroll-reveal gallery-panel">
         <div className="gallery-header scroll-reveal-item">
           <p className="section-label">Gallery</p>
-          <p className="gallery-subtitle">우리의 순간들</p>
         </div>
 
         <div className="gallery-rows">

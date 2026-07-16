@@ -1000,14 +1000,6 @@ body {
   margin-bottom: 0.55rem;
 }
 
-.gallery-subtitle {
-  font-family: var(--font-poetic);
-  font-size: 1.08rem;
-  color: var(--color-calendar-time);
-  letter-spacing: 0.04em;
-  line-height: 1.4;
-}
-
 .gallery-panel {
   background: var(--color-bg);
   margin: 0 -1.8rem;

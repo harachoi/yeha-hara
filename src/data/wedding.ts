@@ -23,9 +23,9 @@ export const weddingData = {
     father: '최용석',
     mother: '강현주',
     accounts: [
-      { role: '신부', bank: '신한', number: '110-123-456789', holder: '최하라' },
-      { role: '아버지', bank: '국민', number: '111-1234-5678-99', holder: '최용석' },
-      { role: '어머니', bank: '농협', number: '111-1234-5678-99', holder: '강현주' },
+      { role: '신부', bank: '농협', number: '302-1611-1284-51', holder: '최하라' },
+      { role: '아버지', bank: '농협', number: '176361-52-034086', holder: '최용석' },
+      { role: '어머니', bank: '농협', number: '713-12-055282', holder: '강현주' },
     ],
   },
   date: {
