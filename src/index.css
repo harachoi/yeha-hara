@@ -348,13 +348,13 @@ body {
   width: 100%;
   max-width: 18rem;
   margin: 0 auto 2.5rem;
-  text-align: left;
+  text-align: center;
 }
 
 .parent-block {
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.55rem;
   padding: 1.15rem 0;
 }
 
@@ -363,26 +363,30 @@ body {
   background: rgba(114, 104, 96, 0.14);
 }
 
-.parent-row {
+.parent-line {
+  margin: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: baseline;
-  gap: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.4rem;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.55;
   color: var(--color-text);
   letter-spacing: -0.01em;
 }
 
-.parent-names,
-.parent-role {
-  flex-shrink: 0;
+.parent-line--couple {
+  gap: 0.55rem;
 }
 
-.parent-relation,
-.parent-couple-name {
-  flex-shrink: 0;
-  text-align: right;
+.parent-names {
+  white-space: nowrap;
+}
+
+.parent-role {
+  color: var(--color-text-light);
+  letter-spacing: 0.04em;
 }
 
 .parent-couple-name {
@@ -409,24 +413,9 @@ body {
 }
 
 .calendar-message-wrap {
-  background: var(--color-bg);
-  margin: 0 -1.8rem 2.5rem;
-  padding: 2.4rem 1.8rem 2.6rem;
-}
-
-.invitation-frame {
-  position: relative;
-  border: 1px solid rgba(212, 181, 171, 0.62);
   background: var(--color-white);
-  padding: 2.55rem 1.35rem 2.35rem;
-}
-
-.invitation-frame::before {
-  content: '';
-  position: absolute;
-  inset: 5px;
-  border: 1px solid rgba(212, 181, 171, 0.32);
-  pointer-events: none;
+  margin: 0 -1.8rem 2.5rem;
+  padding: 3.5rem 1.8rem 3.15rem;
 }
 
 .calendar-invitation-label {

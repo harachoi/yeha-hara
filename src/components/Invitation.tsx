@@ -12,16 +12,15 @@ type ParentBlockProps = {
 function ParentBlock({ father, mother, relationLabel, role, name }: ParentBlockProps) {
   return (
     <div className="parent-block">
-      <div className="parent-row">
+      <p className="parent-line">
         <span className="parent-names">
-          {father} · {mother}
+          {father} · {mother}의 {relationLabel}
         </span>
-        <span className="parent-relation">의 {relationLabel}</span>
-      </div>
-      <div className="parent-row">
+      </p>
+      <p className="parent-line parent-line--couple">
         <span className="parent-role">{role}</span>
         <span className="parent-couple-name">{name}</span>
-      </div>
+      </p>
     </div>
   )
 }

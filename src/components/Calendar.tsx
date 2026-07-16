@@ -16,7 +16,7 @@ export function Calendar() {
   return (
     <section className="section calendar-section">
       <div className="calendar-message-wrap">
-        <div className="scroll-reveal calendar-message-content invitation-frame">
+        <div className="scroll-reveal calendar-message-content">
           <p className="section-label calendar-invitation-label scroll-reveal-item">
             Invitation
           </p>
