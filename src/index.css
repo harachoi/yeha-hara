@@ -35,6 +35,8 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  overscroll-behavior: none;
 }
 
 body {
@@ -43,6 +45,8 @@ body {
   color: var(--color-text);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
 }
 
 .app {
@@ -57,9 +61,10 @@ body {
 /* ── Hero ── */
 .hero {
   position: relative;
-  height: 100vh;
-  height: 100svh;
-  min-height: 600px;
+  width: 100%;
+  height: var(--hero-height, 100svh);
+  min-height: var(--hero-height, 100svh);
+  max-height: var(--hero-height, 100svh);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,23 +76,33 @@ body {
 
 .hero-media {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--hero-height, 100%);
   z-index: 0;
   overflow: hidden;
 }
 
 .hero-image {
+  display: block;
   width: 100%;
-  height: 100%;
+  height: var(--hero-height, 100%);
   object-fit: cover;
   object-position: center 30%;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
   transform: translateZ(0);
   backface-visibility: hidden;
 }
 
 .hero-overlay {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--hero-height, 100%);
   z-index: 1;
   background: linear-gradient(
     to bottom,
