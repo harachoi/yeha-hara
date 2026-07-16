@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import heroPhoto from '../assets/hero.jpg'
 import { weddingData } from '../data/wedding'
 import { HeroNameWord } from './HeroNameWord'
@@ -7,9 +8,22 @@ const HERO_TAGLINE = 'We are getting Married'
 
 export function Hero() {
   const { groom, bride } = weddingData
+  const heroRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const hero = heroRef.current
+    if (!hero) return
+
+    // Lock height once so mobile browser chrome show/hide doesn't rescale the photo.
+    const lockHeight = () => {
+      hero.style.height = `${window.innerHeight}px`
+    }
+
+    lockHeight()
+  }, [])
 
   return (
-    <section className="hero">
+    <section className="hero" ref={heroRef}>
       <div className="hero-media">
         <img
           className="hero-image"
