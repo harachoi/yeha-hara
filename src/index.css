@@ -408,49 +408,55 @@ body {
   padding-top: 0;
 }
 
-.bible-verse-section {
+.calendar-message-wrap {
   background: var(--color-bg);
-  padding: 3.25rem 1.8rem;
-  box-shadow:
-    inset 0 1px 0 rgba(212, 181, 171, 0.12),
-    inset 0 -1px 0 rgba(212, 181, 171, 0.12);
+  margin: 0 -1.8rem 2.5rem;
+  padding: 2.4rem 1.8rem 2.6rem;
 }
 
-.bible-verse-content {
-  max-width: 20rem;
-  margin: 0 auto;
+.invitation-frame {
+  position: relative;
+  border: 1px solid rgba(212, 181, 171, 0.62);
+  background: var(--color-white);
+  padding: 2.55rem 1.35rem 2.35rem;
 }
 
-.bible-verse {
-  margin: 0;
+.invitation-frame::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(212, 181, 171, 0.32);
+  pointer-events: none;
+}
+
+.calendar-invitation-label {
+  margin-bottom: 1.45rem;
+}
+
+.invitation-verse {
+  margin: 0 0 1.65rem;
   padding: 0;
   border: none;
 }
 
-.bible-verse-text {
+.invitation-verse-text {
   margin: 0;
   font-family: var(--font-poetic);
-  font-size: 1.28rem;
-  line-height: 1.85;
+  font-size: 1.22rem;
+  line-height: 1.8;
   letter-spacing: 0.02em;
   color: var(--color-calendar-time);
   white-space: pre-line;
 }
 
-.bible-verse-ref {
+.invitation-verse-ref {
   display: block;
-  margin-top: 0.85rem;
+  margin-top: 0.7rem;
   font-family: var(--font-serif);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-style: normal;
   letter-spacing: 0.06em;
   color: var(--color-text-light);
-}
-
-.calendar-message-wrap {
-  background: var(--color-white);
-  margin: 0 -1.8rem 2.5rem;
-  padding: 3.5rem 1.8rem 3.15rem;
 }
 
 .calendar-message-content.scroll-reveal {
@@ -1034,7 +1040,7 @@ body {
 /* ── Gallery ── */
 .gallery-section {
   background: var(--color-white);
-  padding: 0 1.8rem 1.5rem;
+  padding: 0.75rem 1.8rem 1.5rem;
 }
 
 .gallery-panel.scroll-reveal {
@@ -1059,7 +1065,11 @@ body {
   background: var(--color-bg);
   margin: 0 -1.8rem;
   padding: 2.75rem 1.8rem 2.15rem;
-  box-shadow: inset 0 1px 0 rgba(212, 181, 171, 0.12), inset 0 -1px 0 rgba(212, 181, 171, 0.12);
+  border-radius: 18px 18px 0 0;
+  box-shadow:
+    0 -10px 28px rgba(114, 104, 96, 0.04),
+    inset 0 1px 0 rgba(212, 181, 171, 0.12),
+    inset 0 -1px 0 rgba(212, 181, 171, 0.12);
 }
 
 .gallery-rows {

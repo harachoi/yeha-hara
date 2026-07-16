@@ -1,6 +1,5 @@
 import { useScrollReveal } from './hooks/useScrollReveal'
 import { Hero } from './components/Hero'
-import { BibleVerse } from './components/BibleVerse'
 import { Invitation } from './components/Invitation'
 import { Calendar } from './components/Calendar'
 import { Gallery } from './components/Gallery'
@@ -18,7 +17,6 @@ function App() {
       <Hero />
       <Calendar />
       <Invitation />
-      <BibleVerse />
       <Gallery />
       <Venue />
       <Account />

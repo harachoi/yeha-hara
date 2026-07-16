@@ -10,9 +10,9 @@ export const weddingData = {
     father: '전창남',
     mother: '조미애',
     accounts: [
-      { role: '신랑', bank: '우리', number: '1002-560-432690', holder: '전예하' },
       { role: '아버지', bank: '우리', number: '512-177072-02-101', holder: '전창남' },
       { role: '어머니', bank: '농협', number: '020-02-092483', holder: '조미애' },
+      { role: '신랑', bank: '우리', number: '1002-560-432690', holder: '전예하' },
     ],
   },
   bride: {
@@ -23,9 +23,9 @@ export const weddingData = {
     father: '최용석',
     mother: '강현주',
     accounts: [
-      { role: '신부', bank: '농협', number: '302-1611-1284-51', holder: '최하라' },
       { role: '아버지', bank: '농협', number: '176361-52-034086', holder: '최용석' },
       { role: '어머니', bank: '농협', number: '713-12-055282', holder: '강현주' },
+      { role: '신부', bank: '농협', number: '302-1611-1284-51', holder: '최하라' },
     ],
   },
   date: {
@@ -66,18 +66,15 @@ export const weddingData = {
     },
   },
   
-  bibleVerse: {
-    text: `이 모든 것 위에 사랑을 더하라
-이는 온전하게 매는 띠니라`,
-    reference: '골로새서 3:14',
+  invitationVerse: {
+    text: `누가 현숙한 여인을 찾아 얻겠느냐
+그의 값은 진주보다 더 하니라`,
+    reference: '잠언 31:10',
   },
-  parentsMessage: `시기마다 늘 찾아오는 사계절과 같이
-언제나 차가운 바람이 불 때면
-서로의 온기가 되어주고,
-눈부신 햇살 아래서는 서로의
-그림자가 되어주기로 약속했습니다.
+  parentsMessage: `주님께서 맺어주신 귀한 만남!
+서로 아껴주며 사랑하며 세워가겠습니다.
 
-저희의 새로운 시작에
-따뜻한 응원을 보내주시면 감사하겠습니다`,
+저희의 새로운 여정을 시작하는 자리에 오셔서
+따뜻한 축복을 보내주시면 감사하겠습니다`,
   gallery,
 }
