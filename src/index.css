@@ -482,12 +482,19 @@ body {
 
 .calendar-message {
   margin-bottom: 0;
-  font-size: 0.92rem;
+  /* Longest line must fit without wrapping on any device width. */
+  font-size: min(0.92rem, calc((min(100vw, 430px) - 3.6rem) / 30));
   letter-spacing: -0.02em;
 }
 
-.calendar-message .no-break {
+.calendar-message-line {
+  display: block;
   white-space: nowrap;
+}
+
+.calendar-message-gap {
+  display: block;
+  height: 1.1em;
 }
 
 .calendar-couple-names {

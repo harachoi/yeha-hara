@@ -71,14 +71,10 @@ export const weddingData = {
 그의 값은 진주보다 더 하니라`,
     reference: '잠언 31:10',
   },
-  parentsMessage: {
-    before: `주님께서 맺어주신 귀한 만남!
+  parentsMessage: `주님께서 맺어주신 귀한 만남!
 서로 아껴주며 사랑하며 세워가겠습니다.
 
-저희의 새로운 여정을 시작하는 `,
-    keepTogether: '자리에 오셔서',
-    after: `
-따뜻한 축복을 보내주시면 감사하겠습니다.`,
-  },
+소중한 분들과 함께 하고 싶습니다.
+저희 결혼식에 오셔서 따듯한 축복을 보내주시면 감사하겠습니다.`,
   gallery,
 }
